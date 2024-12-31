@@ -1,6 +1,13 @@
 import streamlit as st
 import pickle
 import numpy as np
+import zipfile
+import os
+
+# Unzip the model file if not already extracted
+if not os.path.exists('weather_model.pkl'):
+    with zipfile.ZipFile('weather_model.zip', 'r') as zip_ref:
+        zip_ref.extractall()
 
 # Load the saved model
 with open('weather_model.pkl', 'rb') as file:
@@ -8,7 +15,7 @@ with open('weather_model.pkl', 'rb') as file:
 
 # Streamlit App
 st.title("Rainfall Prediction")
-st.write("Use this app to predict  the rainfall based on the features.")
+st.write("Use this app to predict the rainfall based on the features.")
 
 # Feature Input Section
 st.sidebar.header("Input Features")
@@ -27,7 +34,6 @@ feature_13 = st.sidebar.number_input("Cum_Rain", value=0.0, format="%.2f")
 
 # Make Prediction
 if st.sidebar.button("Predict"):
-    # Only include input features (excluding Rain as it's the target variable)
     input_features = np.array([[feature_1, feature_2, feature_3, feature_4, feature_5,
                                  feature_7, feature_8, feature_9, feature_10,
                                  feature_11, feature_12, feature_13]])
