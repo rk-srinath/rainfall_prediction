@@ -10,7 +10,7 @@ A machine learning-powered web app to predict rainfall using weather data. Built
 ## Files Included
 - **`weather.py`**: The Streamlit app script for rainfall prediction.
 - **`requirements.txt`**: Lists the dependencies required to run the app.
-- **`weather_model.zip`**: The trained machine learning model. Note: Download the zip file and extract to use
+- **`weather_model.zip`**: The trained machine learning model.
 - **`ICRISAT_Weather_1978_to_2018.csv`**: Historical weather data (for reference or retraining).
 
 ## Installation
